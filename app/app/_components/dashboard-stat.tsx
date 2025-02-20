@@ -13,12 +13,7 @@ interface StatItem {
   value: number;
 }
 
-type DashboardStatsProps = {
-    registeredTotal: number;
-    capacityTotal: number;
-}
-
-const DashboardStats = (props: DashboardStatsProps) => {
+const DashboardStats = () => {
   const facultyName = "มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา";
 
   const lowEnrollmentCount = courseData.filter((item: CourseData) => {
@@ -71,15 +66,6 @@ const DashboardStats = (props: DashboardStatsProps) => {
     },
   ];
 
-  const registeredTotal = courseData.reduce(
-    (sum, item: CourseData) => sum + Number(item["ลงทะเบียน"]),
-    0
-  );
-  
-  const capacityTotal = courseData.reduce(
-    (sum, item: CourseData) => sum + Number(item["รับ"]),
-    0
-  );
 
   return (
     <div className="min-h-screen bg-gray-50 font-prompt">
