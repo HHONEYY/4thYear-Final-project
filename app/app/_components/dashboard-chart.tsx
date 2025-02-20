@@ -108,6 +108,8 @@ const DashboardCharts: FC = () => {
       const registeredPerYear: YearlyCount = years.reduce((acc, year) => ({ ...acc, [year]: 0 }), {});
       const capacityPerYear: YearlyCount = years.reduce((acc, year) => ({ ...acc, [year]: 0 }), {});
 
+      // @eslint-disable-next-line
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       courseData.forEach((course: any) => {
         const year = course['ปีการศึกษา'];
         if (registeredPerYear.hasOwnProperty(year)) {
