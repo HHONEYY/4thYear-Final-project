@@ -1,0 +1,100 @@
+/* สำหรับกราฟ */
+.charts-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* การ์ดแสดงกราฟ */
+.chart-card {
+    position: relative;
+    width: 450px;
+    height: 400px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 50px; /* เว้นที่ให้ไตเติ้ลด้านบน */
+    box-sizing: border-box;
+    
+    /* Fade-in Animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* อนิเมชั่นสำหรับ Fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect */
+.chart-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ไตเติ้ลของกราฟ (อยู่บนสุดของการ์ด) */
+.chart-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+
+/* คอนเทนเนอร์ของกราฟ */
+.chart-card-components {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ปรับให้กราฟอยู่ตรงกลาง */
+.chart-card-components canvas {
+    margin-top: 30px;
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+}
+
+/* ปรับขนาดสำหรับหน้าจอเล็ก */
+@media (max-width: 1024px) {
+    .charts-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-card {
+        width: 100%;
+    }
+}
+
+/* ปรับขนาดสำหรับหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .chart-card {
+        width: 90%;
+    }
+}

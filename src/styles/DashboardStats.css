@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700&display=swap');
+
+/* Container หลักของแดชบอร์ด */
+.dashboard-stats-container {
+    position: relative; /* กำหนดให้เป็น relative เพื่อควบคุม pseudo-elements */
+    margin: 30px 50px;
+    font-family: 'Prompt', sans-serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* ป้องกัน pseudo-elements ล้นออกมา */
+    z-index: 1; /* ให้ container อยู่สูงกว่า pseudo-elements */
+}
+
+/* Pseudo-elements สำหรับลูกบอล */
+.dashboard-stats-container::before,
+.dashboard-stats-container::after {
+    position: absolute;
+    content: "";
+    width: 150px; /* ลดขนาดลูกบอล */
+    height: 150px;
+    background-color: lightblue;
+    transition: all 0.5s;
+    z-index: -1; /* ส่งลูกบอลไปอยู่ข้างหลังเนื้อหาทั้งหมด */
+}
+
+/* ลูกบอลด้านบน */
+.dashboard-stats-container::before {
+    top: -50px; /* ย้ายให้อยู่สูงขึ้น */
+    right: -50px;
+    border-radius: 50%;
+}
+
+/* ลูกบอลด้านล่าง */
+.dashboard-stats-container::after {
+    bottom: -50px; /* ย้ายให้อยู่ต่ำลง */
+    left: -50px;
+    border-radius: 50%;
+}
+
+/* เมื่อ hover ให้ลูกบอลขยายเต็มหน้าจอ */
+.dashboard-stats-container:hover::before,
+.dashboard-stats-container:hover::after {
+    width: 200vw;   /* ใช้ความกว้างเต็มหน้าจอ */
+    height: 200vh;   /* ใช้ความสูงเต็มหน้าจอ */
+    transition: all 0.75s; /* การเปลี่ยนแปลงขนาดอย่างราบรื่น */
+}
+
+
+
+/* ส่วนหัวของแดชบอร์ด */
+.dashboard-header {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #333;
+    display: inline-block;
+    animation: floatText 10s infinite ease-in-out;
+  }
+  
+  @keyframes floatText {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+
+.faculty-name {
+  color: #555;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* กล่องที่แสดงสถิติ */
+.stats-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.stats-card {
+  flex: 1 1 150px;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stats-card h2 {
+  font-size: 32px;
+  margin: 0 0 10px 0;
+  color: #00796b;
+}
+
+.stats-card p {
+  margin: 0;
+  color: #777;
+  font-size: 16px;
+}
+
+/* Media queries สำหรับหน้าจอที่เล็กลง */
+@media (max-width: 768px) {
+  .dashboard-stats-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+  
+  .faculty-name {
+    font-size: 16px;
+  }
+  
+  .stats-card {
+    flex: 1 1 150px;
+    padding: 15px;
+  }
+  
+  .stats-card h2 {
+    font-size: 28px;
+  }
+  
+  .stats-card p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stats-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.states-card {
+    flex: 1 1 150px;
+    min-width: 200px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 100px auto;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    position: relative;
+    width: 240px;
+    height: 330px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  
